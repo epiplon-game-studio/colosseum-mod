@@ -1,0 +1,2 @@
+- sword damage proportional to how close the hit
+- 
