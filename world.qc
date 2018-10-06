@@ -300,10 +300,18 @@ void() worldspawn =
 	precache_model2 ("progs/enforcer.mdl");
 	precache_model2 ("progs/h_mega.mdl");
 	precache_model2 ("progs/laser.mdl");
-	precache_model ("progs/knight.mdl");
-	precache_model ("progs/h_knight.mdl");
 
-	
+	precache_model ("progs/knight.mdl");
+	//precache_model ("progs/h_knight.mdl");
+
+	precache_model2 ("progs/hknight.mdl");
+	precache_model2 ("progs/k_spike.mdl");
+	precache_model2 ("progs/h_hellkn.mdl");
+
+	precache_model ("progs/shambler.mdl");
+	precache_model ("progs/s_light.mdl");
+	precache_model ("progs/h_shams.mdl");
+	precache_model ("progs/bolt.mdl");
 
 	// monsters sound precache
 	precache_sound2 ("enforcer/death1.wav");
@@ -322,6 +330,26 @@ void() worldspawn =
 	precache_sound ("knight/sword1.wav");
 	precache_sound ("knight/sword2.wav");
 	precache_sound ("knight/idle.wav");	
+	precache_sound2 ("hknight/attack1.wav");
+	precache_sound2 ("hknight/death1.wav");
+	precache_sound2 ("hknight/pain1.wav");
+	precache_sound2 ("hknight/sight1.wav");
+	precache_sound ("hknight/hit.wav");		// used by C code, so don't sound2
+	precache_sound2 ("hknight/slash1.wav");
+	precache_sound2 ("hknight/idle.wav");
+	precache_sound2 ("hknight/grunt.wav");
+	precache_sound ("shambler/sattck1.wav");
+	precache_sound ("shambler/sboom.wav");
+	precache_sound ("shambler/sdeath.wav");
+	precache_sound ("shambler/shurt2.wav");
+	precache_sound ("shambler/sidle.wav");
+	precache_sound ("shambler/ssight.wav");
+	precache_sound ("shambler/melee1.wav");
+	precache_sound ("shambler/melee2.wav");
+	precache_sound ("shambler/smack.wav");
+
+	precache_sound ("knight/sword1.wav");
+	precache_sound ("knight/sword2.wav");
 
 //
 // Setup light animation tables. 'a' is total darkness, 'z' is maxbright.

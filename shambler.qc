@@ -333,6 +333,7 @@ void() monster_shambler =
 		remove(self);
 		return;
 	}
+	/*
 	precache_model ("progs/shambler.mdl");
 	precache_model ("progs/s_light.mdl");
 	precache_model ("progs/h_shams.mdl");
@@ -347,7 +348,7 @@ void() monster_shambler =
 	precache_sound ("shambler/melee1.wav");
 	precache_sound ("shambler/melee2.wav");
 	precache_sound ("shambler/smack.wav");
-
+*/
 	self.solid = SOLID_SLIDEBOX;
 	self.movetype = MOVETYPE_STEP;
 	setmodel (self, "progs/shambler.mdl");

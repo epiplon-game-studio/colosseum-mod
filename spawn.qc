@@ -2,10 +2,10 @@ void() spawner;
 void() spawner_use;
 void() spawner_think;
 
-
-
-void() spawn_enforcer;
-void() spawn_knight;
+entity() spawn_enforcer;
+entity() spawn_knight;
+entity() spawn_hknight;
+entity() spawn_shambler;
 
 //=============
 //    SPAWN
@@ -36,72 +36,141 @@ void() spawner_think =
 
 // Check the selected flag and spawn the right monster
 void() spawner_use = {
+    local entity e;
+
     if(self.flags == 0)
-        spawn_enforcer();
+        e = spawn_enforcer();
     if(self.flags == 1)
-        spawn_knight();
+        e = spawn_knight();
+    if(self.flags == 2)
+        e =spawn_hknight();
+    if(self.flags == 6)
+        e = spawn_shambler();
 
-    if(self.flags < 2)
-    {
-        play_teleport();
-        particle(self.origin, '0 0 1', 0, 20);
-    }
+    // set general config
+    setorigin (e, self.origin);
+    e.think = walkmonster_start;
+    e.nextthink = time + 0.1;
+
+    play_teleport();
+    particle(self.origin, '0 0 1', 0, 20);
 };
 
-void() spawn_enforcer = 
+entity() spawn_enforcer = 
 {
-    local	entity enemy;
+    local	entity e;
 
-    enemy = spawn ();
-	enemy.owner = self;
+    e = spawn ();
+	e.owner = self;
 
-    enemy.solid = SOLID_SLIDEBOX;
-	enemy.movetype = MOVETYPE_STEP;
+    e.solid = SOLID_SLIDEBOX;
+	e.movetype = MOVETYPE_STEP;
 
-	setmodel (enemy, "progs/enforcer.mdl");
+	setmodel (e, "progs/enforcer.mdl");
 
-    setorigin (enemy, self.origin);
-	setsize (enemy, '-16 -16 -24', '16 16 40');
+    //setorigin (e, self.origin);
+	setsize (e, '-16 -16 -24', '16 16 40');
 
-	enemy.health = 80;
-    enemy.angles = self.angles;
+	e.health = 80;
+    e.angles = self.angles;
 
-	enemy.th_stand = enf_stand1;
-	enemy.th_walk = enf_walk1;
-	enemy.th_run = enf_run1;
-	enemy.th_pain = enf_pain;
-	enemy.th_die = enf_die;
-	enemy.th_missile = enf_atk1;
-    enemy.think = walkmonster_start;
-    enemy.nextthink = time + 0.1;
+	e.th_stand = enf_stand1;
+	e.th_walk = enf_walk1;
+	e.th_run = enf_run1;
+	e.th_pain = enf_pain;
+	e.th_die = enf_die;
+	e.th_missile = enf_atk1;
+    e.think = walkmonster_start;
+    e.nextthink = time + 0.1;
+
+    return e;
+};
+
+entity() spawn_knight =
+{
+    local	entity e;
+
+    e = spawn ();
+	e.owner = self;
+
+    e.solid = SOLID_SLIDEBOX;
+	e.movetype = MOVETYPE_STEP;
+
+	setmodel (e, "progs/knight.mdl");
+
+    //setorigin (e, self.origin);
+	setsize (e, '-16 -16 -24', '16 16 40');
+	e.health = 75;
+
+	e.th_stand = knight_stand1;
+	e.th_walk = knight_walk1;
+	e.th_run = knight_run1;
+	e.th_melee = knight_atk1;
+	e.th_pain = knight_pain;
+	e.th_die = knight_die;
     
+
+    return e;
 };
 
-void() spawn_knight =
+entity() spawn_hknight =
 {
-    local	entity enemy;
+    local entity e;
 
-    enemy = spawn ();
-	enemy.owner = self;
+    e = spawn ();
+	e.owner = self;
 
-    enemy.solid = SOLID_SLIDEBOX;
-	enemy.movetype = MOVETYPE_STEP;
+    e.solid = SOLID_SLIDEBOX;
+	e.movetype = MOVETYPE_STEP;
 
-	setmodel (enemy, "progs/knight.mdl");
+	setmodel (e, "progs/hknight.mdl");
 
-    setorigin (enemy, self.origin);
-	setsize (enemy, '-16 -16 -24', '16 16 40');
-	enemy.health = 75;
+    //setorigin (e, self.origin);
+	setsize (e, '-16 -16 -24', '16 16 40');
+	e.health = 250;
 
-	enemy.th_stand = knight_stand1;
-	enemy.th_walk = knight_walk1;
-	enemy.th_run = knight_run1;
-	enemy.th_melee = knight_atk1;
-	enemy.th_pain = knight_pain;
-	enemy.th_die = knight_die;
-    enemy.think = walkmonster_start;
-    enemy.nextthink = time + 0.1;
-};
+	e.th_stand = hknight_stand1;
+	e.th_walk = hknight_walk1;
+	e.th_run = hknight_run1;
+	e.th_melee = hknight_melee;
+	e.th_missile = hknight_magicc1;
+	e.th_pain = hknight_pain;
+	e.th_die = hknight_die;
+	
+    e.think = walkmonster_start;
+    e.nextthink = time + 0.1;
+
+    return e;
+}
+
+entity() spawn_shambler
+{
+    local entity e;
+
+    e = spawn ();
+	e.owner = self;
+
+    e.solid = SOLID_SLIDEBOX;
+	e.movetype = MOVETYPE_STEP;
+	setmodel (e, "progs/shambler.mdl");
+
+    //setorigin (e, self.origin);
+	setsize (e, VEC_HULL2_MIN, VEC_HULL2_MAX);
+	e.health = 600;
+
+	e.th_stand = sham_stand1;
+	e.th_walk = sham_walk1;
+	e.th_run = sham_run1;
+	e.th_die = sham_die;
+	e.th_melee = sham_melee;
+	e.th_missile = sham_magic1;
+	e.th_pain = sham_pain;
+
+    e.think = walkmonster_start;
+    e.nextthink = time + 0.1;
+
+    return e;
+}
 
 //=====================
 //  WAVE SPAWN

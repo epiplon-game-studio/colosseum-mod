@@ -640,5 +640,10 @@
 	[
 		0 : "Enforcer"
 		1 : "Knight"
+		2 : "Hell Knight"
+		3 : "Demon"
+		4 : "Ogre"
+		5 : "Wizard"
+		6 : "Shambler"
 	]
 ]
