@@ -379,6 +379,8 @@ void() monster_wizard =
 		remove(self);
 		return;
 	}
+
+/*
 	precache_model ("progs/wizard.mdl");
 	precache_model ("progs/h_wizard.mdl");
 	precache_model ("progs/w_spike.mdl");
@@ -390,6 +392,7 @@ void() monster_wizard =
 	precache_sound ("wizard/widle2.wav");
 	precache_sound ("wizard/wpain.wav");
 	precache_sound ("wizard/wsight.wav");
+*/
 
 	self.solid = SOLID_SLIDEBOX;
 	self.movetype = MOVETYPE_STEP;

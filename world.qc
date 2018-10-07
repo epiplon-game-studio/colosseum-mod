@@ -302,7 +302,7 @@ void() worldspawn =
 	precache_model2 ("progs/laser.mdl");
 
 	precache_model ("progs/knight.mdl");
-	//precache_model ("progs/h_knight.mdl");
+	precache_model ("progs/h_knight.mdl");
 
 	precache_model2 ("progs/hknight.mdl");
 	precache_model2 ("progs/k_spike.mdl");
@@ -312,6 +312,18 @@ void() worldspawn =
 	precache_model ("progs/s_light.mdl");
 	precache_model ("progs/h_shams.mdl");
 	precache_model ("progs/bolt.mdl");
+
+	precache_model ("progs/demon.mdl");
+	precache_model ("progs/h_demon.mdl");
+
+	precache_model ("progs/ogre.mdl");
+	precache_model ("progs/h_ogre.mdl");
+	precache_model ("progs/grenade.mdl");
+
+	precache_model ("progs/wizard.mdl");
+	precache_model ("progs/h_wizard.mdl");
+	precache_model ("progs/w_spike.mdl");
+
 
 	// monsters sound precache
 	precache_sound2 ("enforcer/death1.wav");
@@ -347,6 +359,27 @@ void() worldspawn =
 	precache_sound ("shambler/melee1.wav");
 	precache_sound ("shambler/melee2.wav");
 	precache_sound ("shambler/smack.wav");
+	precache_sound ("demon/ddeath.wav");
+	precache_sound ("demon/dhit2.wav");
+	precache_sound ("demon/djump.wav");
+	precache_sound ("demon/dpain1.wav");
+	precache_sound ("demon/idle1.wav");
+	precache_sound ("demon/sight2.wav");
+	precache_sound ("ogre/ogdrag.wav");
+	precache_sound ("ogre/ogdth.wav");
+	precache_sound ("ogre/ogidle.wav");
+	precache_sound ("ogre/ogidle2.wav");
+	precache_sound ("ogre/ogpain1.wav");
+	precache_sound ("ogre/ogsawatk.wav");
+	precache_sound ("ogre/ogwake.wav");
+	
+	precache_sound ("wizard/hit.wav");		// used by c code
+	precache_sound ("wizard/wattack.wav");
+	precache_sound ("wizard/wdeath.wav");
+	precache_sound ("wizard/widle1.wav");
+	precache_sound ("wizard/widle2.wav");
+	precache_sound ("wizard/wpain.wav");
+	precache_sound ("wizard/wsight.wav");
 
 	precache_sound ("knight/sword1.wav");
 	precache_sound ("knight/sword2.wav");

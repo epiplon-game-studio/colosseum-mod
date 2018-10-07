@@ -328,7 +328,8 @@ void() W_FireCrossbow =
 
 	makevectors (self.v_angle);
 	missile.velocity = aim(self, 1000);
-	missile.velocity = missile.velocity * 1000;
+	missile.velocity = missile.velocity + '0 0 -0.01'; // gravity
+	missile.velocity = missile.velocity * 1000;	// speed
 	missile.angles = vectoangles(missile.velocity);
 	
 	missile.touch = T_ArrowTouch;

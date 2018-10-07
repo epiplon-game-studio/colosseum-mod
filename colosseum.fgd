@@ -120,14 +120,16 @@
     ) =
     item_rockets : "Rockets" []
 
-@PointClass
-    base(Ammo)
-    model(
-        {{
-            spawnflags & 1 ->   ":maps/b_shell1.bsp",
-                                ":maps/b_shell0.bsp"
-        }}
-    ) = item_shells : "Shells" []
+
+
+//@PointClass
+//    base(Ammo)
+//    model(
+//       {{
+//            spawnflags & 1 ->   ":maps/b_shell1.bsp",
+//                                ":maps/b_shell0.bsp"
+//        }}
+//    ) = item_shells : "Shells" []
     
 @PointClass 
     base(Ammo) 
@@ -156,6 +158,9 @@
 		2 : "Megahealth" : 0
 	]
 ]
+
+@PointClass size(-16 -16 -8, 16 16 24) base(Item, Appearflags) model({ "path": ":progs/bag.mdl" }) =
+	item_shells : "Shells" []
 
 @PointClass size(-16 -16 -24, 16 16 32) base(Item, Appearflags) model({ "path": ":progs/suit.mdl" }) =
 	item_artifact_envirosuit : "Environmental protection suit" []

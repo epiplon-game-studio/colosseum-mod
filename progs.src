@@ -35,4 +35,5 @@ shalrath.qc		// registered
 enforcer.qc		// registered
 oldone.qc		// registered
 
+spawn_monsters.qc
 spawn.qc

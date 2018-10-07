@@ -694,19 +694,23 @@ void() item_shells =
 
 	if (self.spawnflags & WEAPON_BIG2)
 	{
-		precache_model ("maps/b_shell1.bsp");
-		setmodel (self, "maps/b_shell1.bsp");
+		precache_model("progs/bag.mdl");
+		setmodel(self, "progs/bag.mdl");
+//		precache_model ("maps/b_shell1.bsp");
+//		setmodel (self, "maps/b_shell1.bsp");
 		self.aflag = 40;
 	}
 	else
 	{
-		precache_model ("maps/b_shell0.bsp");
-		setmodel (self, "maps/b_shell0.bsp");
+		precache_model("progs/bag.mdl");
+		setmodel(self, "progs/bag.mdl");
+//		precache_model ("maps/b_shell0.bsp");
+//		setmodel (self, "maps/b_shell0.bsp");
 		self.aflag = 20;
 	}
 	self.weapon = 1;
 	self.netname = "shells";
-	setsize (self, '0 0 0', '32 32 56');
+	setsize (self, '-16 -16 -8', '16 16 24');
 	StartItem ();
 };
 
@@ -803,14 +807,18 @@ void() item_weapon =
 	{
 		if (self.spawnflags & WEAPON_BIG)
 		{
-			precache_model ("maps/b_shell1.bsp");
-			setmodel (self, "maps/b_shell1.bsp");
+			precache_model("progs/bag.mdl");
+			setmodel(self, "progs/bag.mdl");
+//			precache_model ("maps/b_shell1.bsp");
+//			setmodel (self, "maps/b_shell1.bsp");
 			self.aflag = 40;
 		}
 		else
 		{
-			precache_model ("maps/b_shell0.bsp");
-			setmodel (self, "maps/b_shell0.bsp");
+			precache_model("progs/bag.mdl");
+			setmodel(self, "progs/bag.mdl");
+//			precache_model ("maps/b_shell0.bsp");
+//			setmodel (self, "maps/b_shell0.bsp");
 			self.aflag = 20;
 		}
 		self.weapon = 1;

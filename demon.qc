@@ -184,6 +184,7 @@ void() monster_demon1 =
 		remove(self);
 		return;
 	}
+/*
 	precache_model ("progs/demon.mdl");
 	precache_model ("progs/h_demon.mdl");
 
@@ -193,7 +194,7 @@ void() monster_demon1 =
 	precache_sound ("demon/dpain1.wav");
 	precache_sound ("demon/idle1.wav");
 	precache_sound ("demon/sight2.wav");
-
+*/
 	self.solid = SOLID_SLIDEBOX;
 	self.movetype = MOVETYPE_STEP;
 

@@ -331,14 +331,19 @@ float() ShamCheckAttack =
 	{
 		return FALSE;	// don't have a clear shot
 	}
-			
+
+	// custom - no missile
+	return FALSE;
+/*			
 // missile attack
 	if (enemy_range == RANGE_FAR)
 		return FALSE;
 		
+	
 	self.attack_state = AS_MISSILE;
 	SUB_AttackFinished (2 + 2*random());
 	return TRUE;
+*/
 };
 
 //============================================================================

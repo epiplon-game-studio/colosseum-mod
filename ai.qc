@@ -381,24 +381,27 @@ float() FindTarget =
 	if (client.items & IT_INVISIBILITY)
 		return FALSE;
 
-	r = range (client);
-	if (r == RANGE_FAR)
-		return FALSE;
-		
-	if (!visible (client))
-		return FALSE;
+// custom - always find the player
+//
+//	r = range (client);
+//	if (r == RANGE_FAR)
+//		return FALSE;
+//		
+//	if (!visible (client))
+//		return FALSE;
+//
+//	if (r == RANGE_NEAR)
+//	{
+//		if (client.show_hostile < time && !infront (client))
+//			return FALSE;
+//	}
+//	else if (r == RANGE_MID)
+//	{
+//		if ( /* client.show_hostile < time || */ !infront (client))
+//			return FALSE;
+//	}
+//
 
-	if (r == RANGE_NEAR)
-	{
-		if (client.show_hostile < time && !infront (client))
-			return FALSE;
-	}
-	else if (r == RANGE_MID)
-	{
-		if ( /* client.show_hostile < time || */ !infront (client))
-			return FALSE;
-	}
-	
 //
 // got one
 //
@@ -680,6 +683,8 @@ void(float dist) ai_run =
 	local	float	axis;
 	local	float	direct, ang_rint, ang_floor, ang_ceil;
 	
+	dist = dist * 1.1;
+
 	movedist = dist;
 // see if the enemy is dead
 	if (self.enemy.health <= 0)
