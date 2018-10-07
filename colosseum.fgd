@@ -624,6 +624,12 @@
 	]
 ]
 
+@PointClass base(Appearflags) = play_sound : "Play Sound" 
+[
+	noise1(string) : "Sound Name" : ""
+	wait(string) : "Wait" : "3" 
+]
+
 //=====================
 //  WAVE SPAWN
 //=====================

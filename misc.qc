@@ -372,12 +372,12 @@ void() spikeshooter_use =
 {
 	if (self.spawnflags & SPAWNFLAG_LASER)
 	{
-		sound (self, CHAN_VOICE, "enforcer/enfire.wav", 1, ATTN_NORM);
+		sound (self, CHAN_VOICE, "enforcer/enfire.wav", 0.1, ATTN_NORM);
 		LaunchLaser (self.origin, self.movedir);
 	}
 	else
 	{
-		sound (self, CHAN_VOICE, "weapons/spike2.wav", 1, ATTN_NORM);
+		sound (self, CHAN_VOICE, "weapons/spike2.wav", 0.1, ATTN_NORM);
 		launch_spike (self.origin, self.movedir);
 		newmis.velocity = self.movedir * 500;
 		if (self.spawnflags & SPAWNFLAG_SUPERSPIKE)
@@ -823,3 +823,17 @@ void() prop_athena =
 	precache_model ("progs/athena.mdl");
 	setmodel (self, "progs/athena.mdl");
 };
+
+// PLAY SOUND
+
+void() play_sound_think =
+{
+	sound(self, CHAN_AUTO, self.noise1, 1, ATTN_NORM);
+}
+
+void() play_sound =
+{
+	precache_sound(self.noise1);
+	self.think = play_sound_think;
+	self.nextthink = time + self.wait;
+}
