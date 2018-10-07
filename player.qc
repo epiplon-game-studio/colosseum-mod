@@ -140,9 +140,15 @@ void()	player_run =[	$rockrun1,	player_run	]
 	self.walkframe = self.walkframe + 1;
 };
 
-void() player_bow_loop = {
+void() player_bow_loop = 
+{
 	self.weaponframe = self.weaponframe + 1;
-	if(self.weaponframe == 34)
+	if(self.weaponframe == 3)
+	{
+		W_FireCrossbow ();
+	}
+
+	if(self.weaponframe == 20)
 	{
 		self.weaponframe = 0;
 		self.think = player_run;
@@ -152,8 +158,7 @@ void() player_bow_loop = {
 
 void()	player_shot1 =
 {
-	W_FireCrossbow ();
-	self.weaponframe = 16;
+	self.weaponframe = 0;
 	self.think = player_bow_loop;
 	self.nextthink = time + 0.1;	
 };
